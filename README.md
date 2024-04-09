@@ -13,6 +13,11 @@ I have used this to monitor the price/avaliability of apartments at a specific c
 - Get added as a test user in the Google Cloud Console project 
 - Set Control/Config Vars (below) to your desired settings + potentially `room_types` and `fields`
 
+## Control/Config Vars:
+- `MOCK` - If True, the script will prefill 'changes' with a mock response to make testing the email sending easier
+- `SENDEMAIL` - If True, the script will send an email if there are changes
+- `VERBOSE` - If True, the script will print out the changes it has detected + additional information
+
 ## File Structure:
 - `pullMT.py` - Main script: pulls + parses data, compares it to the last pulled data, and sends an email if there are changes
 - `sendGmail.py` - Script to send an email using the Gmail API
