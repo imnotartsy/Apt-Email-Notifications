@@ -13,8 +13,11 @@ SCOPES = [
     "https://www.googleapis.com/auth/gmail.send"
 ]
 
-def send_email(receiver_email, additions, removals):
-    """ function: Sends Email to receiver_email with the changes in unit availability
+
+def send_email(receiver_email: str, additions: list,
+               removals: list) -> str:
+    """ function: Sends Email to receiver_email with the
+    changes in unit availability
     """
 
     # Auth + Build Service
@@ -32,14 +35,12 @@ def send_email(receiver_email, additions, removals):
         with open("token.json", "w") as token:
             token.write(creds.to_json())
 
-
     # Email configuration
     service = build('gmail', 'v1', credentials=creds)
 
     message = EmailMessage()
     message["To"] = receiver_email
     message["Subject"] = "Changes in Unit Availability"
-
 
     m = "Changes have been found in unit availability!\n\n"
 
@@ -61,12 +62,13 @@ def send_email(receiver_email, additions, removals):
             m += F"\tDescription: {change['Description']}\n"
             m += F"\tAvaliability: {change['Avaliability']}\n\n"
 
-
     message.set_content(m)
-    create_message = {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
+    create_message = {'raw': base64.urlsafe_b64encode(
+        message.as_bytes()).decode()}
 
     try:
-        message = (service.users().messages().send(userId="", body=create_message).execute())
+        message = (service.users().messages().send(
+            userId="", body=create_message).execute())
         print(F'sent message to {message} Message Id: {message["id"]}')
     except HTTPError as error:
         print(F'An error occurred: {error}')
