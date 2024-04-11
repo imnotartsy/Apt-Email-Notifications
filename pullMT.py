@@ -16,15 +16,15 @@ import sendGmail
 
 # * Control Vars + Config
 MOCK = False
-SENDEMAIL = False
-VERBOSE = False
-recipient = YOUR_EMAIL_HERE
+SENDEMAIL = True
+VERBOSE = True
+recipients = [YOUR EMAIL(S) HERE]
 
 
 ###############################################################################
 
 # * API Call
-url = YOUR_URL_HERE
+url = YOUR URL HERE
 response = requests.get(url)
 
 # * Parse the HTML content
@@ -78,6 +78,8 @@ with open("lastPrices.json") as f:
 
 # # * Compare Data
 changes = False
+added = []
+removed = []
 for key in types:
     # Convert each array of dicts to a set of tuples
     types_set = set([tuple(d.items()) for d in types[key]])
@@ -88,8 +90,18 @@ for key in types:
         changes = True
 
         # Find the difference between the two sets
-        added = [dict(d) for d in types_set - lastTypes_set]
-        removed = [dict(d) for d in lastTypes_set - types_set]
+        curr_added = [dict(d) for d in types_set - lastTypes_set]
+        curr_removed = [dict(d) for d in lastTypes_set - types_set]
+
+        # add "key" to each dict in the set
+        for d in curr_added:
+            d["Unit Type"] = key
+        for d in curr_removed:
+            d["Unit Type"] = key
+        
+        # append the difference to the added/removed lists
+        added = added + curr_added
+        removed = removed + curr_removed
 
         print(f"Changes Found in {key} Units!")
         if VERBOSE:
@@ -125,9 +137,16 @@ if changes:
 
     # * Send Email
     if SENDEMAIL:
-        content = sendGmail.send_email(recipient, added, removed)
+        for recipient in recipients:
+            content = sendGmail.send_email(recipient, added, removed)
 
-        if VERBOSE: print(content)
-        print("Email sent!")
+            if VERBOSE: print(content)
+            print("Email sent!")
     else:
         print("Configured to not send email not sent")
+        print("To send email, set SENDEMAIL to True in pullMT.py")
+
+        print("Changes Found in Units")
+        if VERBOSE:
+            if len(added) > 0: print("Added:", json.dumps(added, indent=4))
+            if len(removed) > 0: print("Removed:", json.dumps(removed, indent=4))
