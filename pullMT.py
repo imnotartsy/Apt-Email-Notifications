@@ -18,6 +18,7 @@ import sendGmail
 MOCK = False
 SENDEMAIL = True
 VERBOSE = True
+PATH = [PATH TO LAST PRICES JSON]
 recipients = [YOUR EMAIL(S) HERE]
 
 
@@ -73,7 +74,7 @@ if VERBOSE:
 
 
 # * Open Past Data
-with open("lastPrices.json") as f:
+with open(PATH + "lastPrices.json") as f:
     lastTypes = json.load(f)
 
 # # * Compare Data
@@ -112,7 +113,7 @@ if not changes:
     print("No Changes Found")
 
 # * Update Last Prices
-with open("lastPrices.json", "w") as f:
+with open(PATH + "lastPrices.json", "w") as f:
     json.dump(types, f, indent=4)
 
 ############################################################################################################
