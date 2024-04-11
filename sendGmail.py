@@ -48,15 +48,17 @@ def send_email(receiver_email: str, additions: list,
     if additions:
         m += "Added:\n"
         for change in additions:
-            m += F"Unit: {change['Unit']}\n"
-            m += F"Rent: {change['Rent']}\n"
-            m += F"Deposit: {change['Deposit']}\n"
-            m += F"Description: {change['Description']}\n"
-            m += F"Avaliability: {change['Avaliability']}\n\n"
+            m += F"Unit Type: {change['Unit Type']}\n"
+            m += F"\tUnit: {change['Unit']}\n"
+            m += F"\tRent: {change['Rent']}\n"
+            m += F"\tDeposit: {change['Deposit']}\n"
+            m += F"\tDescription: {change['Description']}\n"
+            m += F"\tAvaliability: {change['Avaliability']}\n\n"
 
     if removals:
         m += "Removed:\n"
         for change in removals:
+            m += F"Unit Type: {change['Unit Type']}\n"
             m += F"\tUnit: {change['Unit']}\n"
             m += F"\tRent: {change['Rent']}\n"
             m += F"\tDeposit: {change['Deposit']}\n"

@@ -162,3 +162,5 @@ cython_debug/
 # Google Creds
 credentials.json
 token.json
+
+lastPrices.json
