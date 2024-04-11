@@ -1,149 +1,16 @@
 {
     "A1-1": [
-        {
-            "Unit": "1194",
-            "Rent": 1518.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-04-30"
-        },
-        {
-            "Unit": "1162",
-            "Rent": 1519.0,
-            "Deposit": "$0",
-            "Description": "Reduced Price Lease Today!",
-            "Avaliability": "2024-05-24"
-        },
-        {
-            "Unit": "1164",
-            "Rent": 1594.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-06-13"
-        },
-        {
-            "Unit": "WAIT-A1-1",
-            "Rent": 1399.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2017-01-07"
-        }
     ],
     "A1-2": [
-        {
-            "Unit": "2175",
-            "Rent": 1504.0,
-            "Deposit": "$0",
-            "Description": "Courtyard View",
-            "Avaliability": "2024-04-10"
-        },
-        {
-            "Unit": "2164",
-            "Rent": 1509.0,
-            "Deposit": "$0",
-            "Description": "A traditional Mark Taylor interior look with Cherry Cabinets, All Black Appliances, and Neutral Color Countertops. This home offers a view from the 2nd floor balcony of our courtyard.",
-            "Avaliability": "2024-04-11"
-        },
-        {
-            "Unit": "WAIT-A1-2",
-            "Rent": 1299.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2024-04-12"
-        }
     ],
     "B2-1": [
-        {
-            "Unit": "2199",
-            "Rent": 2094.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-06-11"
-        },
-        {
-            "Unit": "WAIT-B2-1",
-            "Rent": 1600.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2017-01-07"
-        }
     ],
     "B2-3": [
-        {
-            "Unit": "WAIT-B2-3",
-            "Rent": 1749.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2024-04-12"
-        }
     ],
     "B2-2": [
-        {
-            "Unit": "3167",
-            "Rent": 1834.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-02-06"
-        },
-        {
-            "Unit": "3187",
-            "Rent": 1885.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-06-06"
-        },
-        {
-            "Unit": "WAIT-B2-2",
-            "Rent": 1675.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2024-04-12"
-        }
     ],
     "B2-4": [
-        {
-            "Unit": "2201",
-            "Rent": 1985.0,
-            "Deposit": "$0",
-            "Description": "Beautiful apartment home  featuring gray cabinets, gray granite countertops in kitchen and bathroom, tiled backsplash, stainless steel appliances, upgraded fixtures & ceiling fans",
-            "Avaliability": "2024-05-12"
-        },
-        {
-            "Unit": "WAIT-B2-4",
-            "Rent": 1725.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2024-04-12"
-        }
     ],
     "C3-1": [
-        {
-            "Unit": "1136",
-            "Rent": 2235.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-04-26"
-        },
-        {
-            "Unit": "1116",
-            "Rent": 2460.0,
-            "Deposit": "$0",
-            "Description": "Beautiful apartment home fully renovated featuring granite countertops, tiled backsplash and upgraded fixtures.",
-            "Avaliability": "2024-06-09"
-        },
-        {
-            "Unit": "1134",
-            "Rent": 2385.0,
-            "Deposit": "$0",
-            "Description": "",
-            "Avaliability": "2024-07-04"
-        },
-        {
-            "Unit": "WAIT-C3-1",
-            "Rent": 2125.0,
-            "Deposit": "$0",
-            "Description": "Reserve a spot on our waitlist!",
-            "Avaliability": "2024-04-12"
-        }
     ]
 }
