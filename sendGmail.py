@@ -8,11 +8,13 @@ from requests import HTTPError
 
 from email.message import EmailMessage
 
+from config import GOOGLE_CRED_PATH
+
 # If modifying these scopes, delete the file token.json.
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.send"
 ]
-PATH = [PATH TO CRED AND TOKEN DIRECTORY]
+CRED_PATH = GOOGLE_CRED_PATH
 
 
 def send_email(receiver_email: str, additions: list,
@@ -23,17 +25,17 @@ def send_email(receiver_email: str, additions: list,
 
     # Auth + Build Service
     creds = None
-    if os.path.exists(PATH + "token.json"):
-        creds = Credentials.from_authorized_user_file(PATH + "token.json", SCOPES)
+    if os.path.exists(CRED_PATH + "token.json"):
+        creds = Credentials.from_authorized_user_file(CRED_PATH + "token.json", SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                PATH + "credentials.json", SCOPES
+                CRED_PATH + "credentials.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
-        with open(PATH + "token.json", "w") as token:
+        with open(CRED_PATH + "token.json", "w") as token:
             token.write(creds.to_json())
 
     # Email configuration

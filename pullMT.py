@@ -3,6 +3,11 @@ from bs4 import BeautifulSoup
 import json
 
 import sendGmail
+from config import(
+    PRICES_PATH,
+    URL,
+    EMAIL_RECIPIENTS
+)
 
 # USAGE: python pullMT.py
 # How to Run:
@@ -18,14 +23,14 @@ import sendGmail
 MOCK = False
 SENDEMAIL = True
 VERBOSE = True
-PATH = [PATH TO LAST PRICES JSON]
-recipients = [YOUR EMAIL(S) HERE]
+PATH = PRICES_PATH
+recipients = EMAIL_RECIPIENTS
 
 
 ###############################################################################
 
 # * API Call
-url = YOUR URL HERE
+url = URL
 response = requests.get(url)
 
 # * Parse the HTML content
