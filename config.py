@@ -1,4 +1,0 @@
-GOOGLE_CRED_PATH = "./"
-PRICES_PATH = "./"
-URL = your URL
-EMAIL_RECIPIENTS = [your email]
