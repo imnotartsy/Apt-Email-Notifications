@@ -6,8 +6,8 @@ import sendGmail
 from config import(
     PRICES_PATH,
     URL,
-    EMAIL_RECIPIENTS
-)
+    EMAIL_RECIPIENTS,
+    PRICES_FILE)
 
 # USAGE: python pullMT.py
 # How to Run:
@@ -79,8 +79,16 @@ if VERBOSE:
 
 
 # * Open Past Data
-with open(PATH + "lastPrices.json") as f:
-    lastTypes = json.load(f)
+try:
+    with open(PATH + PRICES_FILE) as f:
+        lastTypes = json.load(f)
+
+# * if PRICES_FILE does not exist, create it
+except FileNotFoundError:
+    lastTypes = {}
+    for key in types:
+        lastTypes[key] = []
+    print("No previous data found, creating file")
 
 # # * Compare Data
 changes = False
@@ -89,6 +97,11 @@ removed = []
 for key in types:
     # Convert each array of dicts to a set of tuples
     types_set = set([tuple(d.items()) for d in types[key]])
+
+    # Check if the key is in the lastTypes dict (gently reduntent but protects
+    # against missing keys/adding new keys)
+    if key not in lastTypes:
+        lastTypes[key] = []
     lastTypes_set = set([tuple(d.items()) for d in lastTypes[key]])
 
     # Check if the sets are different, if so print the changes
@@ -118,7 +131,7 @@ if not changes:
     print("No Changes Found")
 
 # * Update Last Prices
-with open(PATH + "lastPrices.json", "w") as f:
+with open(PATH + PRICES_FILE, "w") as f:
     json.dump(types, f, indent=4)
 
 ############################################################################################################
